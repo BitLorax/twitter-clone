@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Splash
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block body %}
+
+<body class="text-center">
+<main class="form-signin">
+    <div>
+        <div class="form-box">
+            <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
+            <form method="POST" action="/signup/">
+                {% csrf_token %}
+                <input name="username" type="text" placeholder="Username" class="form-control"/>
+                <input name="email" type="email" placeholder="Enter Email" class="form-control"/>
+                <input name="password" type="password" placeholder="Password" class="form-control"/>
+                <button type="submit" class="w-100 btn btn-log btn-primary">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-box">
+            <h1 class="h3 mb-3 fw-normal">Log In</h1>
+            <form method="POST" action="/login/">
+                {% csrf_token %}
+                <input name="username" type="text" placeholder="Enter Username" class="form-control"/>
+                <input name="password" type="password" placeholder="Password" class="form-control"/>
+                <button type="submit" class="w-100 btn btn-log btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+
+{% endblock %}
